@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{52F6422F-409E-427A-9DAA-D52A8C279AFA}</ProjectGuid>
+    <ProjectGuid>{428AA7AA-2BBC-4180-B3FE-BE9A10E3042A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>bissecao</RootNamespace>
     <AssemblyName>bissecao</AssemblyName>
