@@ -13,7 +13,7 @@ namespace posicao_falsa
             double a = 2.0;
             double b = 3.0;
             double tol = 1e-3; // ou 0.001
-            int maxIter = 100;
+            int maxIter = 4;
 
             double raiz = PosicaoFalsa(f, a, b, tol, maxIter);
 

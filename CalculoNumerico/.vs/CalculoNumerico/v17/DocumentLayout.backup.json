@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Estudo\\calculo-numerico\\CalculoNumerico\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{428AA7AA-2BBC-4180-B3FE-BE9A10E3042A}|bissecao\\bissecao.csproj|c:\\estudo\\calculo-numerico\\calculonumerico\\bissecao\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{428AA7AA-2BBC-4180-B3FE-BE9A10E3042A}|bissecao\\bissecao.csproj|solutionrelative:bissecao\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90D32BBF-E683-4E89-8C4A-B5637D2876F3}|cordas\\cordas.csproj|c:\\estudo\\calculo-numerico\\calculonumerico\\cordas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90D32BBF-E683-4E89-8C4A-B5637D2876F3}|cordas\\cordas.csproj|solutionrelative:cordas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5B8FC05-1F4A-43E2-B01C-45470D119F86}|posicao-falsa\\posicao-falsa.csproj|C:\\Estudo\\calculo-numerico\\CalculoNumerico\\posicao-falsa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5B8FC05-1F4A-43E2-B01C-45470D119F86}|posicao-falsa\\posicao-falsa.csproj|solutionrelative:posicao-falsa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0877C781-B645-4713-9556-0C96945BB8A5}|newton\\newton.csproj|c:\\estudo\\calculo-numerico\\calculonumerico\\newton\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0877C781-B645-4713-9556-0C96945BB8A5}|newton\\newton.csproj|solutionrelative:newton\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -52,26 +52,27 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Estudo\\calculo-numerico\\CalculoNumerico\\bissecao\\Program.cs",
-              "RelativeDocumentMoniker": "bissecao\\Program.cs",
-              "ToolTip": "C:\\Estudo\\calculo-numerico\\CalculoNumerico\\bissecao\\Program.cs",
-              "RelativeToolTip": "bissecao\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAABrAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Estudo\\calculo-numerico\\CalculoNumerico\\cordas\\Program.cs",
+              "RelativeDocumentMoniker": "cordas\\Program.cs",
+              "ToolTip": "C:\\Estudo\\calculo-numerico\\CalculoNumerico\\cordas\\Program.cs",
+              "RelativeToolTip": "cordas\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T22:58:22.931Z",
+              "WhenOpened": "2025-08-19T00:05:49.566Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Estudo\\calculo-numerico\\CalculoNumerico\\posicao-falsa\\Program.cs",
-              "RelativeDocumentMoniker": "posicao-falsa\\Program.cs",
-              "ToolTip": "C:\\Estudo\\calculo-numerico\\CalculoNumerico\\posicao-falsa\\Program.cs",
-              "RelativeToolTip": "posicao-falsa\\Program.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwDIAAAARAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Estudo\\calculo-numerico\\CalculoNumerico\\newton\\Program.cs",
+              "RelativeDocumentMoniker": "newton\\Program.cs",
+              "ToolTip": "C:\\Estudo\\calculo-numerico\\CalculoNumerico\\newton\\Program.cs",
+              "RelativeToolTip": "newton\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T22:50:33.833Z"
+              "WhenOpened": "2025-08-18T23:21:43.068Z",
+              "EditorCaption": ""
             }
           ]
         }
