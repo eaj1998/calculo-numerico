@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace posicao_falsa
+namespace Posicao_falsa
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -20,7 +20,7 @@ namespace posicao_falsa
             Console.WriteLine($"Raiz aproximada: {raiz}");
         }
 
-        static double PosicaoFalsa(Func<double, double> f, double a, double b, double tol, int maxIter)
+        public static double PosicaoFalsa(Func<double, double> f, double a, double b, double tol, int maxIter)
         {
             double fa = f(a);
             double fb = f(b);

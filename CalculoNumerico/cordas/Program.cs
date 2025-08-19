@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace cordas
+namespace Cordas
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -19,7 +19,7 @@ namespace cordas
             Console.WriteLine($"\nRaiz aproximada: {raiz:F6}");
         }
 
-        static double Cordas(Func<double, double> f, double x0, double x1, double tol, int maxIter)
+        public static double Cordas(Func<double, double> f, double x0, double x1, double tol, int maxIter)
         {
             double erro = double.MaxValue;
             double xAnt = x0;

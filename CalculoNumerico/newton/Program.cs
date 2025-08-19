@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace newton
+namespace Newton
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -20,7 +20,7 @@ namespace newton
             Console.WriteLine($"\nRaiz aproximada: {raiz:F6}");
         }
 
-        static double Newton(Func<double, double> f, Func<double, double> df, double x0, double tol, int maxIter)
+        public static double Newton(Func<double, double> f, Func<double, double> df, double x0, double tol, int maxIter)
         {
             double x = x0;
             double erro = double.MaxValue;
