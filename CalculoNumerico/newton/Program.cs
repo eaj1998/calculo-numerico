@@ -22,30 +22,38 @@ namespace Newton
 
         public static double Newton(Func<double, double> f, Func<double, double> df, double x0, double tol, int maxIter)
         {
-            double x = x0;
-            double erro = double.MaxValue;
-
-            for (int i = 0; i < maxIter; i++)
+            try
             {
-                double fx = f(x);
-                double dfx = df(x);
+                double x = x0;
+                double erro = double.MaxValue;
 
-                if (i > 0)
-                    Console.WriteLine($"Iteração {i + 1}: x = {x:F6}, f(x) = {fx:F6}, f'(x) = {dfx:F6}, erro = {erro:E6}");
-                else
-                    Console.WriteLine($"Iteração {i + 1}: x = {x:F6}, f(x) = {fx:F6}, f'(x) = {dfx:F6}");
+                for (int i = 0; i < maxIter; i++)
+                {
+                    double fx = f(x);
+                    double dfx = df(x);
 
-                if (Math.Abs(fx) < tol || erro < tol)
-                    return x;
+                    if (i > 0)
+                        Console.WriteLine($"Iteração {i + 1}: x = {x:F6}, f(x) = {fx:F6}, f'(x) = {dfx:F6}, erro = {erro:E6}");
+                    else
+                        Console.WriteLine($"Iteração {i + 1}: x = {x:F6}, f(x) = {fx:F6}, f'(x) = {dfx:F6}");
 
-                if (Math.Abs(dfx) < 1e-12)
-                    throw new Exception("Derivada próxima de zero. Método pode falhar.");
+                    if (Math.Abs(fx) < tol || erro < tol)
+                        return x;
 
-                double xNovo = x - fx / dfx;
-                erro = Math.Abs(xNovo - x);
-                x = xNovo;
+                    if (Math.Abs(dfx) < 1e-12)
+                        throw new Exception("Derivada próxima de zero. Método pode falhar.");
+
+                    double xNovo = x - fx / dfx;
+                    erro = Math.Abs(xNovo - x);
+                    x = xNovo;
+                }
+                return x;
             }
-            return x;
-        }
+            catch (Exception e) 
+            { 
+                Console.WriteLine($"Erro: {e.Message}");
+                return 0;
+            }
+}
     }
 }

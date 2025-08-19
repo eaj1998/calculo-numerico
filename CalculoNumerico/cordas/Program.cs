@@ -21,30 +21,37 @@ namespace Cordas
 
         public static double Cordas(Func<double, double> f, double x0, double x1, double tol, int maxIter)
         {
-            double erro = double.MaxValue;
-            double xAnt = x0;
-            double x = x1;
+            try { 
+                double erro = double.MaxValue;
+                double xAnt = x0;
+                double x = x1;
 
-            for (int i = 0; i < maxIter; i++)
-            {
-                double fxAnt = f(xAnt);
-                double fx = f(x);
+                for (int i = 0; i < maxIter; i++)
+                {
+                    double fxAnt = f(xAnt);
+                    double fx = f(x);
 
-                if (Math.Abs(fx - fxAnt) < 1e-12)
-                    throw new Exception("Divisão por zero na fórmula da corda.");
+                    if (Math.Abs(fx - fxAnt) < 1e-12)
+                        throw new Exception("Divisão por zero na fórmula da corda.");
 
-                double xNovo = x - fx * (x - xAnt) / (fx - fxAnt);
-                erro = Math.Abs(xNovo - x);
+                    double xNovo = x - fx * (x - xAnt) / (fx - fxAnt);
+                    erro = Math.Abs(xNovo - x);
 
-                Console.WriteLine($"Iteração {i + 1}: x_{i} = {xAnt:F6}, x_{i + 1} = {x:F6}, f(x_{i + 1}) = {fx:F6}, erro = {erro:E6}");
+                    Console.WriteLine($"Iteração {i + 1}: x_{i} = {xAnt:F6}, x_{i + 1} = {x:F6}, f(x_{i + 1}) = {fx:F6}, erro = {erro:E6}");
 
-                if (Math.Abs(f(xNovo)) < tol || erro < tol)
-                    return xNovo;
+                    if (Math.Abs(f(xNovo)) < tol || erro < tol)
+                        return xNovo;
 
-                xAnt = x;
-                x = xNovo;
+                    xAnt = x;
+                    x = xNovo;
+                }
+                return x;
             }
-            return x;
+            catch (Exception e)
+            {
+                Console.WriteLine($"Erro: {e.Message}");
+                return 0;
+            }
         }
     }
 }

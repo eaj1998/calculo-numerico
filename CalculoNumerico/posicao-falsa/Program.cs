@@ -22,35 +22,43 @@ namespace Posicao_falsa
 
         public static double PosicaoFalsa(Func<double, double> f, double a, double b, double tol, int maxIter)
         {
-            double fa = f(a);
-            double fb = f(b);
-
-            if (fa * fb >= 0)
-                throw new ArgumentException("f(a) e f(b) devem ter sinais opostos.");
-
-            double c = a;
-            for (int i = 0; i < maxIter; i++)
+            try
             {
-                c = (a * fb - b * fa) / (fb - fa);
-                double fc = f(c);
+                double fa = f(a);
+                double fb = f(b);
 
-                Console.WriteLine($"Iteração {i + 1}: a = {a:F6}, b = {b:F6}, c = {c:F6}, f(c) = {fc:F6}");
+                if (fa * fb >= 0)
+                    throw new ArgumentException("f(a) e f(b) devem ter sinais opostos.");
 
-                if (Math.Abs(fc) < tol)
-                    return c;
-
-                if (fa * fc < 0)
+                double c = a;
+                for (int i = 0; i < maxIter; i++)
                 {
-                    b = c;
-                    fb = fc;
+                    c = (a * fb - b * fa) / (fb - fa);
+                    double fc = f(c);
+
+                    Console.WriteLine($"Iteração {i + 1}: a = {a:F6}, b = {b:F6}, c = {c:F6}, f(c) = {fc:F6}");
+
+                    if (Math.Abs(fc) < tol)
+                        return c;
+
+                    if (fa * fc < 0)
+                    {
+                        b = c;
+                        fb = fc;
+                    }
+                    else
+                    {
+                        a = c;
+                        fa = fc;
+                    }
                 }
-                else
-                {
-                    a = c;
-                    fa = fc;
-                }
+                return c;
             }
-            return c;
+            catch (Exception e) 
+            { 
+                Console.WriteLine($"Erro: {e.Message}");
+                return 0;
+            }
         }
     }
 }

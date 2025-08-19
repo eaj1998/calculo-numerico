@@ -44,7 +44,8 @@ namespace Bissecao
                 }
                 return c;
             }
-            catch (Exception e) { 
+            catch (Exception e) 
+            { 
                 Console.WriteLine($"Erro: {e.Message}");
                 return 0;
             }

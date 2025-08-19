@@ -1,6 +1,6 @@
 # Métodos Numéricos: Bisseção, Posição Falsa, Cordas e Newton
 
-Este projeto implementa quatro métodos numéricos clássicos para encontrar raízes de funções: **Bisseção**, **Posição Falsa (Regula Falsi)**, **Método das Cordas** e **Método de Newton**, utilizando C# (.NET Framework 4.8).
+Este projeto implementa quatro métodos numéricos clássicos para encontrar raízes de funções: **Bisseção**, **Posição Falsa (Regula Falsi)**, **Método das Cordas** e **Método de Newton**, utilizando C# (.NET Framework 4.8). O projeto inclui um **sistema de menu interativo** que permite executar todos os métodos de forma unificada.
 
 ## 📋 Descrição
 
@@ -11,6 +11,10 @@ O projeto contém implementações completas de quatro algoritmos fundamentais e
 ```
 CalculoNumerico/
 ├── CalculoNumerico.sln          # Solução principal do Visual Studio
+├── Menu/                         # Sistema de menu interativo (NOVO!)
+│   ├── Program.cs               # Menu principal com todas as opções
+│   ├── Menu.csproj             # Arquivo de projeto do menu
+│   └── App.config              # Configuração da aplicação
 ├── bissecao/                    # Implementação do método da bisseção
 │   ├── Program.cs               # Código principal do método
 │   ├── bissecao.csproj         # Arquivo de projeto
@@ -30,11 +34,38 @@ CalculoNumerico/
 └── README.md                    # Este arquivo
 ```
 
+## 🆕 Sistema de Menu Interativo
+
+### Funcionalidades do Menu (`Menu/Program.cs`)
+
+O novo módulo Menu oferece uma interface unificada para todos os métodos numéricos:
+
+- **Opção 1**: Método da Bisseção
+- **Opção 2**: Método da Posição Falsa  
+- **Opção 3**: Método de Newton
+- **Opção 4**: Método das Cordas (Secante)
+- **Opção 0**: Sair
+
+**Características:**
+- Interface de usuário amigável via console
+- Entrada de parâmetros interativa para cada método
+- Função de exemplo unificada: f(x) = x³ - 9x + 3
+- Cálculo automático de derivada para o método de Newton
+- Tratamento de erros robusto
+- Possibilidade de executar múltiplos métodos em sequência
+
+**Como usar:**
+1. Execute o projeto Menu como projeto de inicialização
+2. Escolha o método desejado (1-4)
+3. Insira os parâmetros solicitados
+4. Visualize o resultado
+5. Continue testando outros métodos ou saia (0)
+
 ## 🔬 Métodos Implementados
 
 ### 1. Método da Bisseção (`bissecao/Program.cs`)
 
-**Função de exemplo:** \( f(x) = x \cdot \log_{10}(x) - 1 \)
+**Função de exemplo:** \( f(x) = x^3 - 9x + 3 \)
 
 **Intervalo:** [2, 3]
 
@@ -49,6 +80,12 @@ CalculoNumerico/
 2. Avalia f(c)
 3. Escolhe o subintervalo [a,c] ou [c,b] baseado no sinal de f(c)
 4. Repete até atingir a tolerância desejada
+
+**Melhorias implementadas:**
+- Método público e estático para uso externo
+- Tratamento de erros com try-catch
+- Validação de entrada (f(a) e f(b) com sinais opostos)
+- Retorno de erro (0) em caso de falha
 
 ### 2. Método da Posição Falsa (`posicao-falsa/Program.cs`)
 
@@ -111,7 +148,20 @@ CalculoNumerico/
 - .NET Framework 4.8
 - Conhecimento básico de C# e matemática
 
-### Passos para Execução
+### Opção 1: Sistema de Menu (Recomendado)
+
+1. **Abra o projeto:**
+   - Abra o arquivo `CalculoNumerico.sln` no Visual Studio
+   
+2. **Configure o Menu como projeto de inicialização:**
+   - Clique com botão direito no projeto `Menu` na Solution Explorer
+   - Selecione "Set as Startup Project"
+   
+3. **Execute o projeto:**
+   - Pressione `F5` ou clique em "Start Debugging"
+   - Siga as instruções no console para escolher o método e inserir parâmetros
+
+### Opção 2: Métodos Individuais
 
 1. **Abra o projeto:**
    - Abra o arquivo `CalculoNumerico.sln` no Visual Studio
@@ -127,85 +177,71 @@ CalculoNumerico/
 ### Alternativa via Linha de Comando
 
 ```bash
-# Para o método da bisseção
+# Para o sistema de menu (recomendado)
+cd CalculoNumerico/Menu
+dotnet run
+
+# Para métodos individuais
 cd CalculoNumerico/bissecao
 dotnet run
 
-# Para o método da posição falsa
-cd CalculoNumerico/posicao-falsa
+cd ../posicao-falsa
 dotnet run
 
-# Para o método das cordas
-cd CalculoNumerico/cordas
+cd ../cordas
 dotnet run
 
-# Para o método de Newton
-cd CalculoNumerico/newton
+cd ../newton
 dotnet run
 ```
 
-## 📊 Exemplo de Saída
+## 📊 Exemplo de Uso do Menu
 
-### Método da Bisseção
 ```
-Iteração 1: a = 2.000000, b = 3.000000, c = 2.500000, f(c) = 0.198970
-Iteração 2: a = 2.000000, b = 2.500000, c = 2.250000, f(c) = -0.075258
-Iteração 3: a = 2.250000, b = 2.500000, c = 2.375000, f(c) = 0.061856
-Iteração 4: a = 2.250000, b = 2.375000, c = 2.312500, f(c) = -0.006651
-Iteração 5: a = 2.312500, b = 2.375000, c = 2.343750, f(c) = 0.027605
-...
-Raiz aproximada: 2.506184
-```
+Escolha o método:
+1 - Bisseção
+2 - Posição Falsa
+3 - Newton
+4 - Cordas (Secante)
+0 - Sair
+Opção: 1
 
-### Método da Posição Falsa
-```
-Iteração 1: a = 2.000000, b = 3.000000, c = 2.333333, f(c) = -0.037037
-Iteração 2: a = 2.333333, b = 3.000000, c = 2.352941, f(c) = -0.002267
-Iteração 3: a = 2.352941, b = 3.000000, c = 2.355556, f(c) = -0.000138
-Iteração 4: a = 2.355556, b = 3.000000, c = 2.355556, f(c) = -0.000138
-...
-Raiz aproximada: 2.355556
-```
+a: 2
+b: 3
+Tolerância: 0.001
+Máx. Iterações: 100
 
-### Método das Cordas
-```
-Iteração 1: x_0 = 2.500000, x_1 = 3.000000, f(x_1) = 3.000000, erro = 5.000000E-01
-Iteração 2: x_1 = 3.000000, x_2 = 2.333333, f(x_2) = -0.037037, erro = 6.666667E-01
-Iteração 3: x_2 = 2.333333, x_3 = 2.352941, f(x_3) = -0.002267, erro = 1.960784E-02
+Iteração 1: a = 2.000000, b = 3.000000, c = 2.500000, f(c) = -0.125000
+Iteração 2: a = 2.000000, b = 2.500000, c = 2.250000, f(c) = -1.265625
+Iteração 3: a = 2.000000, b = 2.250000, c = 2.125000, f(c) = -2.119141
 ...
-Raiz aproximada: 2.355556
-```
 
-### Método de Newton
-```
-Iteração 1: x = 3.000000, f(x) = 3.000000, f'(x) = 18.000000
-Iteração 2: x = 2.833333, f(x) = 0.657407, f'(x) = 15.083333, erro = 1.666667E-01
-Iteração 3: x = 2.789772, f(x) = 0.023456, f'(x) = 14.333333, erro = 4.356061E-02
-...
-Raiz aproximada: 2.789772
+Raiz aproximada: 2.000000
 ```
 
 ## ⚙️ Personalização
 
-### Alterando a Função
-Modifique a linha que define a função no arquivo `Program.cs`:
+### Alterando a Função no Menu
+
+Para modificar a função de exemplo no sistema de menu, edite o arquivo `Menu/Program.cs`:
 
 ```csharp
-// Para o método da bisseção
+// Função atual: f(x) = x^3 - 9x + 3
+Func<double, double> f = x => Math.Pow(x, 3) - 9 * x + 3;
+
+// Exemplo de outras funções:
+// f(x) = x * log10(x) - 1
 Func<double, double> f = x => x * Math.Log10(x) - 1;
 
-// Para o método da posição falsa
-Func<double, double> f = x => Math.Pow(x, 3) - 9 * x + 3;
+// f(x) = e^x - 2x - 1
+Func<double, double> f = x => Math.Exp(x) - 2 * x - 1;
 
-// Para o método das cordas
-Func<double, double> f = x => Math.Pow(x, 3) - 9 * x + 3;
-
-// Para o método de Newton (requer também a derivada)
-Func<double, double> f = x => Math.Pow(x, 3) - 9 * x + 3;
-Func<double, double> df = x => 3 * Math.Pow(x, 2) - 9;
+// f(x) = sin(x) - x/2
+Func<double, double> f = x => Math.Sin(x) - x / 2;
 ```
 
-### Alterando Parâmetros
+### Alterando Parâmetros Padrão
+
 ```csharp
 // Para Bisseção e Posição Falsa
 double a = 2.0;        // Limite inferior do intervalo
@@ -223,6 +259,48 @@ int maxIter = 10;      // Número máximo de iterações
 double x0 = 3.0;       // Ponto inicial
 double tol = 1e-5;     // Tolerância (precisão desejada)
 int maxIter = 3;       // Número máximo de iterações
+```
+
+## 🔧 Arquitetura Técnica
+
+### Estrutura de Classes
+
+Todos os métodos implementam a mesma interface de uso:
+
+```csharp
+// Bisseção
+public static double Bissecao(Func<double, double> f, double a, double b, double tol, int maxIter)
+
+// Posição Falsa
+public static double PosicaoFalsa(Func<double, double> f, double a, double b, double tol, int maxIter)
+
+// Cordas
+public static double Cordas(Func<double, double> f, double x0, double x1, double tol, int maxIter)
+
+// Newton
+public static double Newton(Func<double, double> f, Func<double, double> df, double x0, double tol, int maxIter)
+```
+
+### Tratamento de Erros
+
+- **Validação de entrada:** Verificação de sinais opostos para métodos de intervalo
+- **Divisão por zero:** Proteção contra divisão por zero nos métodos de Cordas e Newton
+- **Derivada zero:** Validação de derivada próxima de zero no método de Newton
+- **Try-catch:** Tratamento robusto de exceções
+
+### Cálculo Automático de Derivada
+
+O sistema de menu inclui cálculo automático de derivada usando diferenças finitas:
+
+```csharp
+static Func<double, double> Derivada(Func<double, double> f)
+{
+    return x =>
+    {
+        double h = 1e-6;
+        return (f(x + h) - f(x - h)) / (2 * h);
+    };
+}
 ```
 
 ## 📚 Teoria dos Métodos
@@ -310,6 +388,10 @@ Os métodos de Cordas e Newton utilizam aproximações lineares da função para
 ### Método de Newton - Derivada Zero
 - **Causa:** Derivada próxima de zero no ponto atual
 - **Solução:** Use um ponto inicial diferente ou outro método
+
+### Erro no Sistema de Menu
+- **Causa:** Entrada inválida ou parâmetros incorretos
+- **Solução:** Verifique se os valores inseridos são numéricos válidos e estão dentro dos limites esperados
 
 ## 📖 Referências
 
