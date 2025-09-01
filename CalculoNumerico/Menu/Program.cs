@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+using NCalc;
 
 namespace metodos_numericos
 {
@@ -8,6 +10,34 @@ namespace metodos_numericos
         {
             while (true)
             {
+                Console.WriteLine("\nDigite a função f(x) (ex: x^3 - 9*x + 3) ou 0 para sair:");
+                string inputFunc = Console.ReadLine();
+
+                if (inputFunc == "0")
+                    break;
+                // Exemplo: f(x) = x^3 - 9x + 3
+
+                inputFunc = Regex.Replace(inputFunc, @"log\s*([a-zA-Z0-9]+)", "log($1)");
+
+                inputFunc = Regex.Replace(inputFunc, @"([A-Za-z0-9\)\(]+)\^([0-9]+(?:\.[0-9]+)?)", "Pow($1,$2)");
+
+                inputFunc = Regex.Replace(inputFunc, @"(\d+|x|\))(?=\s*(log|sin|cos|exp|[A-Za-z]))", "$1*");
+
+                Console.WriteLine($"Expressão normalizada: {inputFunc}");
+
+
+                var expr = new Expression(inputFunc.Trim());
+
+                Func<double, double> f = x =>
+                {
+                    expr.Parameters["x"] = x;
+                    return Convert.ToDouble(expr.Evaluate());
+                };
+
+
+
+                Func<double, double> df = Derivada(f);
+
                 Console.WriteLine("\nEscolha o método:");
                 Console.WriteLine("1 - Bisseção");
                 Console.WriteLine("2 - Posição Falsa");
@@ -19,11 +49,6 @@ namespace metodos_numericos
 
                 if (opcao == "0")
                     break;
-
-                // Exemplo: f(x) = x^3 - 9x + 3
-                Func<double, double> f = x => Math.Pow(x, 3) - 9 * x + 3;
-                // Derivada para Newton
-                Func<double, double> df = Derivada(f);
 
                 switch (opcao)
                 {
@@ -90,8 +115,16 @@ namespace metodos_numericos
             return x =>
             {
                 double h = 1e-6;
-                return (f(x + h) - f(x - h)) / (2 * h);
+                double fxh1 = f(x + h);
+                double fxh2 = f(x - h);
+
+                // previne overflow / NaN
+                if (double.IsInfinity(fxh1) || double.IsInfinity(fxh2))
+                    throw new OverflowException("Valor da função muito grande na derivada");
+
+                return (fxh1 - fxh2) / (2 * h);
             };
         }
+
     }
 }
